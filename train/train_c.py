@@ -174,11 +174,24 @@ class WurstCore(TrainingCore, DataCore, WarpCore):
             generator_ema = self.load_model(generator_ema, 'generator_ema')
             generator_ema.to(dtype).to(self.device).eval().requires_grad_(False)
 
+
         if self.config.use_fsdp:
             fsdp_auto_wrap_policy = ModuleWrapPolicy([ResBlock, AttnBlock, TimestepBlock, FeedForwardBlock])
-            generator = FSDP(generator, **self.fsdp_defaults, auto_wrap_policy=fsdp_auto_wrap_policy, device_id=self.device)
+            generator = FSDP(generator, **self.fsdp_defaults, auto_wrap_policy=fsdp_auto_wrap_policy, 
+                             use_orig_params= True,
+                             device_id=self.device
+                             )
             if generator_ema is not None:
-                generator_ema = FSDP(generator_ema, **self.fsdp_defaults, auto_wrap_policy=fsdp_auto_wrap_policy, device_id=self.device)
+                generator_ema = FSDP(generator_ema, **self.fsdp_defaults, auto_wrap_policy=fsdp_auto_wrap_policy, device_id=self.device,
+                                     use_orig_params=True)
+                
+        #mode = 'default'         -- results in disk OOM
+        #mode = 'reduce-overhead' -- size mismatch
+        #mode = 'reduce-overhead', fullgraph=True -- dynamo setattr error
+        #mode = 'default', fullgraph=True -- dynamo setattr error
+        #mode = 'max-autotune-no-cudagraphs'
+
+        generator = torch.compile(generator, mode='default')
 
         # CLIP encoders
         tokenizer = AutoTokenizer.from_pretrained(self.config.clip_text_model_name)
@@ -263,4 +276,4 @@ if __name__ == '__main__':
     # core.fsdp_defaults['sharding_strategy'] = ShardingStrategy.NO_SHARD
 
     # RUN TRAINING
-    warpcore()
+    warpcore(single_gpu=False)

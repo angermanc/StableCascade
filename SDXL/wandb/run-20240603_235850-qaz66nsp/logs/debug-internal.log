@@ -1,0 +1,483 @@
+2024-06-03 23:58:50,333 INFO    StreamThr :73461 [internal.py:wandb_internal():85] W&B internal server running at pid: 73461, started at: 2024-06-03 23:58:50.332608
+2024-06-03 23:58:50,334 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status
+2024-06-03 23:58:50,335 INFO    WriterThread:73461 [datastore.py:open_for_write():87] open: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/run-qaz66nsp.wandb
+2024-06-03 23:58:50,336 DEBUG   SenderThread:73461 [sender.py:send():378] send: header
+2024-06-03 23:58:50,336 DEBUG   SenderThread:73461 [sender.py:send():378] send: run
+2024-06-03 23:58:50,561 INFO    SenderThread:73461 [dir_watcher.py:__init__():211] watching files in: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files
+2024-06-03 23:58:50,561 INFO    SenderThread:73461 [sender.py:_start_run_threads():1123] run started: qaz66nsp with start time 1717484330.332468
+2024-06-03 23:58:50,563 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: check_version
+2024-06-03 23:58:50,563 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: check_version
+2024-06-03 23:58:50,630 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: run_start
+2024-06-03 23:58:50,662 DEBUG   HandlerThread:73461 [system_info.py:__init__():26] System info init
+2024-06-03 23:58:50,662 DEBUG   HandlerThread:73461 [system_info.py:__init__():41] System info init done
+2024-06-03 23:58:50,662 INFO    HandlerThread:73461 [system_monitor.py:start():194] Starting system monitor
+2024-06-03 23:58:50,662 INFO    SystemMonitor:73461 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-06-03 23:58:50,662 INFO    HandlerThread:73461 [system_monitor.py:probe():214] Collecting system info
+2024-06-03 23:58:50,663 INFO    SystemMonitor:73461 [interfaces.py:start():188] Started cpu monitoring
+2024-06-03 23:58:50,663 INFO    SystemMonitor:73461 [interfaces.py:start():188] Started disk monitoring
+2024-06-03 23:58:50,664 INFO    SystemMonitor:73461 [interfaces.py:start():188] Started gpu monitoring
+2024-06-03 23:58:50,664 INFO    SystemMonitor:73461 [interfaces.py:start():188] Started memory monitoring
+2024-06-03 23:58:50,666 INFO    SystemMonitor:73461 [interfaces.py:start():188] Started network monitoring
+2024-06-03 23:58:50,733 DEBUG   HandlerThread:73461 [system_info.py:probe():150] Probing system
+2024-06-03 23:58:50,735 DEBUG   HandlerThread:73461 [gitlib.py:_init_repo():56] git repository is invalid
+2024-06-03 23:58:50,735 DEBUG   HandlerThread:73461 [system_info.py:probe():198] Probing system done
+2024-06-03 23:58:50,735 DEBUG   HandlerThread:73461 [system_monitor.py:probe():223] {'os': 'Linux-6.5.0-1018-aws-x86_64-with-glibc2.31', 'python': '3.10.13', 'heartbeatAt': '2024-06-04T06:58:50.733247', 'startedAt': '2024-06-04T06:58:50.328615', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '/home/ray/image-generation/SDXL/text_2_image.py', 'codePathLocal': 'text_2_image.py', 'codePath': 'text_2_image.py', 'host': 'ip-10-0-71-98', 'username': 'ray', 'executable': '/home/ray/anaconda3/bin/python', 'cpu_count': 48, 'cpu_count_logical': 96, 'cpu_freq': {'current': 3104.2356979166684, 'min': 0.0, 'max': 0.0}, 'cpu_freq_per_core': [{'current': 3414.269, 'min': 0.0, 'max': 0.0}, {'current': 1655.475, 'min': 0.0, 'max': 0.0}, {'current': 3377.31, 'min': 0.0, 'max': 0.0}, {'current': 3510.081, 'min': 0.0, 'max': 0.0}, {'current': 3500.312, 'min': 0.0, 'max': 0.0}, {'current': 3455.572, 'min': 0.0, 'max': 0.0}, {'current': 3596.273, 'min': 0.0, 'max': 0.0}, {'current': 3595.547, 'min': 0.0, 'max': 0.0}, {'current': 3593.898, 'min': 0.0, 'max': 0.0}, {'current': 3598.509, 'min': 0.0, 'max': 0.0}, {'current': 3580.575, 'min': 0.0, 'max': 0.0}, {'current': 3358.218, 'min': 0.0, 'max': 0.0}, {'current': 3601.122, 'min': 0.0, 'max': 0.0}, {'current': 3617.819, 'min': 0.0, 'max': 0.0}, {'current': 3478.068, 'min': 0.0, 'max': 0.0}, {'current': 3600.548, 'min': 0.0, 'max': 0.0}, {'current': 2999.998, 'min': 0.0, 'max': 0.0}, {'current': 3363.93, 'min': 0.0, 'max': 0.0}, {'current': 3540.863, 'min': 0.0, 'max': 0.0}, {'current': 3431.089, 'min': 0.0, 'max': 0.0}, {'current': 3454.37, 'min': 0.0, 'max': 0.0}, {'current': 3603.338, 'min': 0.0, 'max': 0.0}, {'current': 3600.259, 'min': 0.0, 'max': 0.0}, {'current': 2744.138, 'min': 0.0, 'max': 0.0}, {'current': 3616.657, 'min': 0.0, 'max': 0.0}, {'current': 3276.413, 'min': 0.0, 'max': 0.0}, {'current': 2999.998, 'min': 0.0, 'max': 0.0}, {'current': 3595.892, 'min': 0.0, 'max': 0.0}, {'current': 3596.746, 'min': 0.0, 'max': 0.0}, {'current': 3486.573, 'min': 0.0, 'max': 0.0}, {'current': 2999.998, 'min': 0.0, 'max': 0.0}, {'current': 3282.889, 'min': 0.0, 'max': 0.0}, {'current': 2999.998, 'min': 0.0, 'max': 0.0}, {'current': 2999.998, 'min': 0.0, 'max': 0.0}, {'current': 2999.998, 'min': 0.0, 'max': 0.0}, {'current': 3443.013, 'min': 0.0, 'max': 0.0}, {'current': 3430.37, 'min': 0.0, 'max': 0.0}, {'current': 2999.998, 'min': 0.0, 'max': 0.0}, {'current': 3278.897, 'min': 0.0, 'max': 0.0}, {'current': 2999.998, 'min': 0.0, 'max': 0.0}, {'current': 2999.998, 'min': 0.0, 'max': 0.0}, {'current': 2999.998, 'min': 0.0, 'max': 0.0}, {'current': 3234.929, 'min': 0.0, 'max': 0.0}, {'current': 2999.998, 'min': 0.0, 'max': 0.0}, {'current': 2999.998, 'min': 0.0, 'max': 0.0}, {'current': 3410.652, 'min': 0.0, 'max': 0.0}, {'current': 3312.467, 'min': 0.0, 'max': 0.0}, {'current': 3620.612, 'min': 0.0, 'max': 0.0}, {'current': 2852.251, 'min': 0.0, 'max': 0.0}, {'current': 3311.937, 'min': 0.0, 'max': 0.0}, {'current': 2999.998, 'min': 0.0, 'max': 0.0}, {'current': 3472.45, 'min': 0.0, 'max': 0.0}, {'current': 3486.409, 'min': 0.0, 'max': 0.0}, {'current': 3317.654, 'min': 0.0, 'max': 0.0}, {'current': 3411.7, 'min': 0.0, 'max': 0.0}, {'current': 3601.195, 'min': 0.0, 'max': 0.0}, {'current': 3612.404, 'min': 0.0, 'max': 0.0}, {'current': 3599.797, 'min': 0.0, 'max': 0.0}, {'current': 3382.181, 'min': 0.0, 'max': 0.0}, {'current': 3379.577, 'min': 0.0, 'max': 0.0}, {'current': 3599.725, 'min': 0.0, 'max': 0.0}, {'current': 2907.514, 'min': 0.0, 'max': 0.0}, {'current': 3483.806, 'min': 0.0, 'max': 0.0}, {'current': 3398.079, 'min': 0.0, 'max': 0.0}, {'current': 3330.985, 'min': 0.0, 'max': 0.0}, {'current': 2374.109, 'min': 0.0, 'max': 0.0}, {'current': 3331.03, 'min': 0.0, 'max': 0.0}, {'current': 3603.33, 'min': 0.0, 'max': 0.0}, {'current': 3433.262, 'min': 0.0, 'max': 0.0}, {'current': 3597.407, 'min': 0.0, 'max': 0.0}, {'current': 3482.003, 'min': 0.0, 'max': 0.0}, {'current': 3504.796, 'min': 0.0, 'max': 0.0}, {'current': 3516.515, 'min': 0.0, 'max': 0.0}, {'current': 3352.683, 'min': 0.0, 'max': 0.0}, {'current': 2999.998, 'min': 0.0, 'max': 0.0}, {'current': 3599.95, 'min': 0.0, 'max': 0.0}, {'current': 3503.058, 'min': 0.0, 'max': 0.0}, {'current': 3470.586, 'min': 0.0, 'max': 0.0}, {'current': 3599.723, 'min': 0.0, 'max': 0.0}, {'current': 3352.097, 'min': 0.0, 'max': 0.0}, {'current': 3339.261, 'min': 0.0, 'max': 0.0}, {'current': 3266.609, 'min': 0.0, 'max': 0.0}, {'current': 3191.109, 'min': 0.0, 'max': 0.0}, {'current': 3501.174, 'min': 0.0, 'max': 0.0}, {'current': 3275.407, 'min': 0.0, 'max': 0.0}, {'current': 3293.899, 'min': 0.0, 'max': 0.0}, {'current': 2999.998, 'min': 0.0, 'max': 0.0}, {'current': 3391.018, 'min': 0.0, 'max': 0.0}, {'current': 3601.8, 'min': 0.0, 'max': 0.0}, {'current': 3620.02, 'min': 0.0, 'max': 0.0}, {'current': 3600.433, 'min': 0.0, 'max': 0.0}, {'current': 2999.998, 'min': 0.0, 'max': 0.0}, {'current': 3289.401, 'min': 0.0, 'max': 0.0}, {'current': 3401.728, 'min': 0.0, 'max': 0.0}, {'current': 3335.085, 'min': 0.0, 'max': 0.0}, {'current': 3600.448, 'min': 0.0, 'max': 0.0}], 'disk': {'/': {'total': 145.1909637451172, 'used': 61.52397918701172}}, 'gpu': 'NVIDIA A100-SXM4-80GB', 'gpu_count': 8, 'gpu_devices': [{'name': 'NVIDIA A100-SXM4-80GB', 'memory_total': 85899345920}, {'name': 'NVIDIA A100-SXM4-80GB', 'memory_total': 85899345920}, {'name': 'NVIDIA A100-SXM4-80GB', 'memory_total': 85899345920}, {'name': 'NVIDIA A100-SXM4-80GB', 'memory_total': 85899345920}, {'name': 'NVIDIA A100-SXM4-80GB', 'memory_total': 85899345920}, {'name': 'NVIDIA A100-SXM4-80GB', 'memory_total': 85899345920}, {'name': 'NVIDIA A100-SXM4-80GB', 'memory_total': 85899345920}, {'name': 'NVIDIA A100-SXM4-80GB', 'memory_total': 85899345920}], 'memory': {'total': 1121.7970085144043}}
+2024-06-03 23:58:50,735 INFO    HandlerThread:73461 [system_monitor.py:probe():224] Finished collecting system info
+2024-06-03 23:58:50,735 INFO    HandlerThread:73461 [system_monitor.py:probe():227] Publishing system info
+2024-06-03 23:58:50,735 DEBUG   HandlerThread:73461 [system_info.py:_save_conda():207] Saving list of conda packages installed into the current environment
+2024-06-03 23:58:51,562 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_created():271] file/dir created: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/conda-environment.yaml
+2024-06-03 23:59:04,925 DEBUG   HandlerThread:73461 [system_info.py:_save_conda():222] Saving conda packages done
+2024-06-03 23:59:04,927 INFO    HandlerThread:73461 [system_monitor.py:probe():229] Finished publishing system info
+2024-06-03 23:59:04,931 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-03 23:59:04,931 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: keepalive
+2024-06-03 23:59:04,931 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-03 23:59:04,932 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: keepalive
+2024-06-03 23:59:04,932 DEBUG   SenderThread:73461 [sender.py:send():378] send: files
+2024-06-03 23:59:04,932 INFO    SenderThread:73461 [sender.py:_save_file():1389] saving file wandb-metadata.json with policy now
+2024-06-03 23:59:05,162 INFO    wandb-upload_0:73461 [upload_job.py:push():130] Uploaded file /tmp/tmpqa8dcyviwandb/7afqyk7e-wandb-metadata.json
+2024-06-03 23:59:05,312 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: python_packages
+2024-06-03 23:59:05,313 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: python_packages
+2024-06-03 23:59:05,313 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-03 23:59:05,314 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-03 23:59:05,465 DEBUG   SenderThread:73461 [sender.py:send():378] send: telemetry
+2024-06-03 23:59:05,465 DEBUG   SenderThread:73461 [sender.py:send():378] send: telemetry
+2024-06-03 23:59:05,465 DEBUG   SenderThread:73461 [sender.py:send():378] send: config
+2024-06-03 23:59:05,465 DEBUG   SenderThread:73461 [sender.py:send():378] send: config
+2024-06-03 23:59:05,465 DEBUG   SenderThread:73461 [sender.py:send():378] send: config
+2024-06-03 23:59:05,465 DEBUG   SenderThread:73461 [sender.py:send():378] send: config
+2024-06-03 23:59:05,465 DEBUG   SenderThread:73461 [sender.py:send():378] send: config
+2024-06-03 23:59:05,465 DEBUG   SenderThread:73461 [sender.py:send():378] send: config
+2024-06-03 23:59:05,466 DEBUG   SenderThread:73461 [sender.py:send():378] send: config
+2024-06-03 23:59:05,466 DEBUG   SenderThread:73461 [sender.py:send():378] send: config
+2024-06-03 23:59:05,466 DEBUG   SenderThread:73461 [sender.py:send():378] send: config
+2024-06-03 23:59:05,466 DEBUG   SenderThread:73461 [sender.py:send():378] send: config
+2024-06-03 23:59:05,466 DEBUG   SenderThread:73461 [sender.py:send():378] send: config
+2024-06-03 23:59:05,466 DEBUG   SenderThread:73461 [sender.py:send():378] send: config
+2024-06-03 23:59:05,466 DEBUG   SenderThread:73461 [sender.py:send():378] send: config
+2024-06-03 23:59:05,466 DEBUG   SenderThread:73461 [sender.py:send():378] send: config
+2024-06-03 23:59:05,564 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/conda-environment.yaml
+2024-06-03 23:59:05,565 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_created():271] file/dir created: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/wandb-metadata.json
+2024-06-03 23:59:05,565 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_created():271] file/dir created: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/requirements.txt
+2024-06-03 23:59:05,620 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-03 23:59:06,565 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_created():271] file/dir created: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-03 23:59:08,566 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-03 23:59:10,671 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-03 23:59:12,567 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-03 23:59:14,568 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-03 23:59:16,485 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-03 23:59:16,568 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-03 23:59:20,315 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-03 23:59:20,315 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-03 23:59:22,429 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-03 23:59:22,570 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/config.yaml
+2024-06-03 23:59:27,570 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-03 23:59:32,570 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-03 23:59:35,314 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-03 23:59:35,315 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-03 23:59:38,395 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-03 23:59:43,395 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-03 23:59:48,396 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-03 23:59:50,320 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-03 23:59:50,320 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-03 23:59:50,666 DEBUG   SystemMonitor:73461 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-06-03 23:59:50,669 DEBUG   SenderThread:73461 [sender.py:send():378] send: stats
+2024-06-03 23:59:53,670 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-03 23:59:58,671 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:00:03,671 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:00:05,322 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-04 00:00:05,322 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-04 00:00:09,481 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:00:14,481 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:00:19,482 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:00:20,359 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-04 00:00:20,359 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-04 00:00:20,671 DEBUG   SenderThread:73461 [sender.py:send():378] send: stats
+2024-06-04 00:00:24,672 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:00:29,673 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:00:34,674 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:00:35,328 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-04 00:00:35,328 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-04 00:00:40,385 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:00:45,386 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:00:50,328 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-04 00:00:50,329 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-04 00:00:50,441 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:00:50,672 DEBUG   SenderThread:73461 [sender.py:send():378] send: stats
+2024-06-04 00:00:55,674 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:01:00,597 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:01:00,807 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:01:02,597 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:01:04,598 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:01:05,697 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-04 00:01:05,698 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-04 00:01:05,851 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:01:06,598 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:01:08,599 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:01:10,599 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:01:11,596 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:01:12,600 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:01:14,601 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:01:16,601 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:01:16,717 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:01:18,602 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:01:20,602 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:01:20,674 DEBUG   SenderThread:73461 [sender.py:send():378] send: stats
+2024-06-04 00:01:21,616 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-04 00:01:21,617 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-04 00:01:21,769 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:01:22,603 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:01:24,604 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:01:26,604 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:01:27,522 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:01:28,605 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:01:30,606 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:01:32,606 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:01:32,646 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:01:34,607 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:01:36,607 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:01:37,556 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-04 00:01:37,556 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-04 00:01:38,608 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:01:38,611 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:01:40,608 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:01:42,609 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:01:43,694 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:01:44,610 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:01:46,610 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:01:48,611 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:01:49,425 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:01:50,611 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:01:50,676 DEBUG   SenderThread:73461 [sender.py:send():378] send: stats
+2024-06-04 00:01:52,568 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-04 00:01:52,568 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-04 00:01:54,678 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:01:59,678 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:02:04,679 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:02:07,563 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-04 00:02:07,564 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-04 00:02:09,682 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:02:14,682 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:02:19,683 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:02:20,677 DEBUG   SenderThread:73461 [sender.py:send():378] send: stats
+2024-06-04 00:02:22,579 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-04 00:02:22,579 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-04 00:02:24,718 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:02:29,719 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:02:34,720 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:02:37,563 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-04 00:02:37,563 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-04 00:02:40,627 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:02:45,628 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:02:50,629 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:02:50,679 DEBUG   SenderThread:73461 [sender.py:send():378] send: stats
+2024-06-04 00:02:52,563 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-04 00:02:52,564 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-04 00:02:56,614 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:03:01,615 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:03:06,616 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:03:07,563 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-04 00:03:07,563 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-04 00:03:11,674 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:03:14,633 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:03:17,293 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:03:18,634 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:03:20,634 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:03:20,680 DEBUG   SenderThread:73461 [sender.py:send():378] send: stats
+2024-06-04 00:03:22,563 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-04 00:03:22,564 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:03:22,564 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-04 00:03:22,635 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:03:28,200 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:03:28,636 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:03:32,637 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:03:33,299 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:03:34,638 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:03:36,638 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:03:38,407 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-04 00:03:38,408 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-04 00:03:38,570 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:03:38,639 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:03:40,639 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:03:42,640 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:03:44,299 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:03:44,641 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:03:46,641 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:03:48,642 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:03:49,412 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:03:50,642 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:03:50,682 DEBUG   SenderThread:73461 [sender.py:send():378] send: stats
+2024-06-04 00:03:52,643 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:03:54,303 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-04 00:03:54,304 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-04 00:03:54,420 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:03:54,643 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:03:56,644 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:03:58,644 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:04:00,203 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:04:00,645 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:04:02,645 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:04:04,646 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:04:05,330 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:04:06,646 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:04:08,647 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:04:10,228 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-04 00:04:10,228 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-04 00:04:10,354 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:04:10,647 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:04:12,648 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:04:14,648 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:04:16,121 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:04:16,649 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:04:18,649 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:04:20,650 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:04:20,683 DEBUG   SenderThread:73461 [sender.py:send():378] send: stats
+2024-06-04 00:04:21,684 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:04:24,651 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:04:25,228 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-04 00:04:25,228 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-04 00:04:26,651 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:04:27,535 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:04:28,652 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:04:32,536 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:04:36,654 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:04:37,827 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:04:38,655 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:04:40,476 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-04 00:04:40,477 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-04 00:04:40,655 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:04:42,656 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:04:42,911 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:04:44,656 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:04:46,657 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:04:48,658 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:04:48,781 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:04:50,658 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:04:50,688 DEBUG   SenderThread:73461 [sender.py:send():378] send: stats
+2024-06-04 00:04:52,659 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:04:53,869 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:04:54,659 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:04:56,306 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-04 00:04:56,306 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-04 00:04:56,660 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:04:58,660 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:04:59,744 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:05:00,661 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:05:02,661 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:05:04,662 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:05:04,835 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:05:06,662 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:05:08,663 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:05:10,663 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:05:10,707 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:05:12,145 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-04 00:05:12,146 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-04 00:05:12,664 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:05:14,664 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:05:15,803 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:05:16,665 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:05:18,666 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:05:20,666 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:05:20,686 DEBUG   SenderThread:73461 [sender.py:send():378] send: stats
+2024-06-04 00:05:21,686 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:05:22,667 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:05:24,667 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:05:26,668 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:05:27,114 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:05:27,145 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-04 00:05:27,146 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-04 00:05:28,668 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:05:30,669 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:05:32,669 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:05:32,836 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:05:37,837 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:05:40,672 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:05:42,394 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-04 00:05:42,395 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-04 00:05:42,672 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:05:43,459 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:05:44,673 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:05:46,673 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:05:48,498 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:05:48,674 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:05:50,674 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:05:50,687 DEBUG   SenderThread:73461 [sender.py:send():378] send: stats
+2024-06-04 00:05:52,675 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:05:54,381 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:05:54,675 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:05:56,676 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:05:58,268 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-04 00:05:58,269 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-04 00:05:58,677 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:05:59,410 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:06:00,677 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:06:02,678 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:06:04,678 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:06:05,379 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:06:06,679 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:06:08,679 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:06:10,496 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:06:10,680 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:06:12,680 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:06:14,166 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-04 00:06:14,167 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-04 00:06:14,681 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:06:16,393 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:06:16,682 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:06:18,682 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:06:20,683 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:06:20,689 DEBUG   SenderThread:73461 [sender.py:send():378] send: stats
+2024-06-04 00:06:21,515 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:06:22,683 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:06:24,684 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:06:26,685 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:06:27,414 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:06:28,685 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:06:29,166 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: stop_status
+2024-06-04 00:06:29,167 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: stop_status
+2024-06-04 00:06:30,686 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:06:32,686 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:06:32,879 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:06:34,687 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:06:36,687 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:06:38,365 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:06:43,502 DEBUG   SenderThread:73461 [sender.py:send():378] send: exit
+2024-06-04 00:06:43,502 INFO    SenderThread:73461 [sender.py:send_exit():585] handling exit code: 0
+2024-06-04 00:06:43,503 INFO    SenderThread:73461 [sender.py:send_exit():587] handling runtime: 472
+2024-06-04 00:06:43,503 INFO    SenderThread:73461 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-06-04 00:06:43,503 INFO    SenderThread:73461 [sender.py:send_exit():593] send defer
+2024-06-04 00:06:43,503 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: defer
+2024-06-04 00:06:43,504 INFO    HandlerThread:73461 [handler.py:handle_request_defer():184] handle defer: 0
+2024-06-04 00:06:43,504 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:06:43,504 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: defer
+2024-06-04 00:06:43,504 INFO    SenderThread:73461 [sender.py:send_request_defer():609] handle sender defer: 0
+2024-06-04 00:06:43,504 INFO    SenderThread:73461 [sender.py:transition_state():613] send defer: 1
+2024-06-04 00:06:43,504 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: defer
+2024-06-04 00:06:43,504 INFO    HandlerThread:73461 [handler.py:handle_request_defer():184] handle defer: 1
+2024-06-04 00:06:43,504 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: defer
+2024-06-04 00:06:43,504 INFO    SenderThread:73461 [sender.py:send_request_defer():609] handle sender defer: 1
+2024-06-04 00:06:43,504 INFO    SenderThread:73461 [sender.py:transition_state():613] send defer: 2
+2024-06-04 00:06:43,504 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: defer
+2024-06-04 00:06:43,504 INFO    HandlerThread:73461 [handler.py:handle_request_defer():184] handle defer: 2
+2024-06-04 00:06:43,504 INFO    HandlerThread:73461 [system_monitor.py:finish():203] Stopping system monitor
+2024-06-04 00:06:43,505 DEBUG   SystemMonitor:73461 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2024-06-04 00:06:43,505 INFO    HandlerThread:73461 [interfaces.py:finish():200] Joined cpu monitor
+2024-06-04 00:06:43,505 DEBUG   SystemMonitor:73461 [system_monitor.py:_start():183] Publishing last batch of metrics
+2024-06-04 00:06:43,506 INFO    HandlerThread:73461 [interfaces.py:finish():200] Joined disk monitor
+2024-06-04 00:06:43,689 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_created():271] file/dir created: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/wandb-summary.json
+2024-06-04 00:06:44,552 INFO    HandlerThread:73461 [interfaces.py:finish():200] Joined gpu monitor
+2024-06-04 00:06:44,552 INFO    HandlerThread:73461 [interfaces.py:finish():200] Joined memory monitor
+2024-06-04 00:06:44,552 INFO    HandlerThread:73461 [interfaces.py:finish():200] Joined network monitor
+2024-06-04 00:06:44,552 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: poll_exit
+2024-06-04 00:06:44,553 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: defer
+2024-06-04 00:06:44,553 INFO    SenderThread:73461 [sender.py:send_request_defer():609] handle sender defer: 2
+2024-06-04 00:06:44,553 INFO    SenderThread:73461 [sender.py:transition_state():613] send defer: 3
+2024-06-04 00:06:44,553 DEBUG   SenderThread:73461 [sender.py:send():378] send: stats
+2024-06-04 00:06:44,553 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: defer
+2024-06-04 00:06:44,554 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: poll_exit
+2024-06-04 00:06:44,554 INFO    HandlerThread:73461 [handler.py:handle_request_defer():184] handle defer: 3
+2024-06-04 00:06:44,554 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: defer
+2024-06-04 00:06:44,554 INFO    SenderThread:73461 [sender.py:send_request_defer():609] handle sender defer: 3
+2024-06-04 00:06:44,555 INFO    SenderThread:73461 [sender.py:transition_state():613] send defer: 4
+2024-06-04 00:06:44,555 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: defer
+2024-06-04 00:06:44,555 INFO    HandlerThread:73461 [handler.py:handle_request_defer():184] handle defer: 4
+2024-06-04 00:06:44,555 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: defer
+2024-06-04 00:06:44,555 INFO    SenderThread:73461 [sender.py:send_request_defer():609] handle sender defer: 4
+2024-06-04 00:06:44,555 INFO    SenderThread:73461 [sender.py:transition_state():613] send defer: 5
+2024-06-04 00:06:44,555 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: defer
+2024-06-04 00:06:44,555 INFO    HandlerThread:73461 [handler.py:handle_request_defer():184] handle defer: 5
+2024-06-04 00:06:44,555 DEBUG   SenderThread:73461 [sender.py:send():378] send: summary
+2024-06-04 00:06:44,556 INFO    SenderThread:73461 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-06-04 00:06:44,556 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: defer
+2024-06-04 00:06:44,556 INFO    SenderThread:73461 [sender.py:send_request_defer():609] handle sender defer: 5
+2024-06-04 00:06:44,556 INFO    SenderThread:73461 [sender.py:transition_state():613] send defer: 6
+2024-06-04 00:06:44,556 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: defer
+2024-06-04 00:06:44,556 INFO    HandlerThread:73461 [handler.py:handle_request_defer():184] handle defer: 6
+2024-06-04 00:06:44,556 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: defer
+2024-06-04 00:06:44,556 INFO    SenderThread:73461 [sender.py:send_request_defer():609] handle sender defer: 6
+2024-06-04 00:06:44,556 INFO    SenderThread:73461 [sender.py:transition_state():613] send defer: 7
+2024-06-04 00:06:44,556 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: status_report
+2024-06-04 00:06:44,556 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: defer
+2024-06-04 00:06:44,556 INFO    HandlerThread:73461 [handler.py:handle_request_defer():184] handle defer: 7
+2024-06-04 00:06:44,556 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: defer
+2024-06-04 00:06:44,557 INFO    SenderThread:73461 [sender.py:send_request_defer():609] handle sender defer: 7
+2024-06-04 00:06:44,689 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:06:44,690 INFO    Thread-12 :73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/wandb-summary.json
+2024-06-04 00:06:45,503 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: poll_exit
+2024-06-04 00:06:48,001 INFO    SenderThread:73461 [sender.py:transition_state():613] send defer: 8
+2024-06-04 00:06:48,001 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: poll_exit
+2024-06-04 00:06:48,001 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: defer
+2024-06-04 00:06:48,002 INFO    HandlerThread:73461 [handler.py:handle_request_defer():184] handle defer: 8
+2024-06-04 00:06:48,002 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: defer
+2024-06-04 00:06:48,002 INFO    SenderThread:73461 [sender.py:send_request_defer():609] handle sender defer: 8
+2024-06-04 00:06:48,002 INFO    SenderThread:73461 [job_builder.py:build():432] Attempting to build job artifact
+2024-06-04 00:06:48,003 INFO    SenderThread:73461 [job_builder.py:_get_source_type():576] no source found
+2024-06-04 00:06:48,003 INFO    SenderThread:73461 [sender.py:transition_state():613] send defer: 9
+2024-06-04 00:06:48,003 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: defer
+2024-06-04 00:06:48,003 INFO    HandlerThread:73461 [handler.py:handle_request_defer():184] handle defer: 9
+2024-06-04 00:06:48,003 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: defer
+2024-06-04 00:06:48,003 INFO    SenderThread:73461 [sender.py:send_request_defer():609] handle sender defer: 9
+2024-06-04 00:06:48,003 INFO    SenderThread:73461 [dir_watcher.py:finish():358] shutting down directory watcher
+2024-06-04 00:06:48,504 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: poll_exit
+2024-06-04 00:06:48,690 INFO    SenderThread:73461 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:06:48,691 INFO    SenderThread:73461 [dir_watcher.py:finish():388] scan: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files
+2024-06-04 00:06:48,691 INFO    SenderThread:73461 [dir_watcher.py:finish():402] scan save: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/wandb-metadata.json wandb-metadata.json
+2024-06-04 00:06:48,691 INFO    SenderThread:73461 [dir_watcher.py:finish():402] scan save: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/config.yaml config.yaml
+2024-06-04 00:06:48,691 INFO    SenderThread:73461 [dir_watcher.py:finish():402] scan save: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/wandb-summary.json wandb-summary.json
+2024-06-04 00:06:48,691 INFO    SenderThread:73461 [dir_watcher.py:finish():402] scan save: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/conda-environment.yaml conda-environment.yaml
+2024-06-04 00:06:48,695 INFO    SenderThread:73461 [dir_watcher.py:finish():402] scan save: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log output.log
+2024-06-04 00:06:48,695 INFO    SenderThread:73461 [dir_watcher.py:finish():402] scan save: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/requirements.txt requirements.txt
+2024-06-04 00:06:48,695 INFO    SenderThread:73461 [sender.py:transition_state():613] send defer: 10
+2024-06-04 00:06:48,697 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: poll_exit
+2024-06-04 00:06:48,697 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: defer
+2024-06-04 00:06:48,699 INFO    HandlerThread:73461 [handler.py:handle_request_defer():184] handle defer: 10
+2024-06-04 00:06:48,701 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: defer
+2024-06-04 00:06:48,701 INFO    SenderThread:73461 [sender.py:send_request_defer():609] handle sender defer: 10
+2024-06-04 00:06:48,701 INFO    SenderThread:73461 [file_pusher.py:finish():169] shutting down file pusher
+2024-06-04 00:06:48,890 INFO    wandb-upload_0:73461 [upload_job.py:push():130] Uploaded file /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/config.yaml
+2024-06-04 00:06:48,926 INFO    wandb-upload_2:73461 [upload_job.py:push():130] Uploaded file /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/conda-environment.yaml
+2024-06-04 00:06:48,934 INFO    wandb-upload_4:73461 [upload_job.py:push():130] Uploaded file /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/requirements.txt
+2024-06-04 00:06:48,939 INFO    wandb-upload_1:73461 [upload_job.py:push():130] Uploaded file /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/wandb-summary.json
+2024-06-04 00:06:48,948 INFO    wandb-upload_3:73461 [upload_job.py:push():130] Uploaded file /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/files/output.log
+2024-06-04 00:06:49,149 INFO    Thread-11 (_thread_body):73461 [sender.py:transition_state():613] send defer: 11
+2024-06-04 00:06:49,150 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: defer
+2024-06-04 00:06:49,150 INFO    HandlerThread:73461 [handler.py:handle_request_defer():184] handle defer: 11
+2024-06-04 00:06:49,150 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: defer
+2024-06-04 00:06:49,150 INFO    SenderThread:73461 [sender.py:send_request_defer():609] handle sender defer: 11
+2024-06-04 00:06:49,150 INFO    SenderThread:73461 [file_pusher.py:join():175] waiting for file pusher
+2024-06-04 00:06:49,150 INFO    SenderThread:73461 [sender.py:transition_state():613] send defer: 12
+2024-06-04 00:06:49,150 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: defer
+2024-06-04 00:06:49,150 INFO    HandlerThread:73461 [handler.py:handle_request_defer():184] handle defer: 12
+2024-06-04 00:06:49,150 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: defer
+2024-06-04 00:06:49,151 INFO    SenderThread:73461 [sender.py:send_request_defer():609] handle sender defer: 12
+2024-06-04 00:06:49,151 INFO    SenderThread:73461 [file_stream.py:finish():601] file stream finish called
+2024-06-04 00:06:49,264 INFO    SenderThread:73461 [file_stream.py:finish():605] file stream finish is done
+2024-06-04 00:06:49,264 INFO    SenderThread:73461 [sender.py:transition_state():613] send defer: 13
+2024-06-04 00:06:49,265 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: defer
+2024-06-04 00:06:49,265 INFO    HandlerThread:73461 [handler.py:handle_request_defer():184] handle defer: 13
+2024-06-04 00:06:49,265 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: defer
+2024-06-04 00:06:49,265 INFO    SenderThread:73461 [sender.py:send_request_defer():609] handle sender defer: 13
+2024-06-04 00:06:49,265 INFO    SenderThread:73461 [sender.py:transition_state():613] send defer: 14
+2024-06-04 00:06:49,265 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: defer
+2024-06-04 00:06:49,265 DEBUG   SenderThread:73461 [sender.py:send():378] send: final
+2024-06-04 00:06:49,265 INFO    HandlerThread:73461 [handler.py:handle_request_defer():184] handle defer: 14
+2024-06-04 00:06:49,265 DEBUG   SenderThread:73461 [sender.py:send():378] send: footer
+2024-06-04 00:06:49,266 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: defer
+2024-06-04 00:06:49,266 INFO    SenderThread:73461 [sender.py:send_request_defer():609] handle sender defer: 14
+2024-06-04 00:06:49,266 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: poll_exit
+2024-06-04 00:06:49,266 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: poll_exit
+2024-06-04 00:06:49,267 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: poll_exit
+2024-06-04 00:06:49,267 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: poll_exit
+2024-06-04 00:06:49,267 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: server_info
+2024-06-04 00:06:49,267 DEBUG   SenderThread:73461 [sender.py:send_request():405] send_request: server_info
+2024-06-04 00:06:49,269 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: get_summary
+2024-06-04 00:06:49,269 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: sampled_history
+2024-06-04 00:06:49,269 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: internal_messages
+2024-06-04 00:06:49,325 INFO    MainThread:73461 [wandb_run.py:_footer_history_summary_info():3994] rendering history
+2024-06-04 00:06:49,325 INFO    MainThread:73461 [wandb_run.py:_footer_history_summary_info():4026] rendering summary
+2024-06-04 00:06:49,326 INFO    MainThread:73461 [wandb_run.py:_footer_sync_info():3953] logging synced files
+2024-06-04 00:06:49,326 DEBUG   HandlerThread:73461 [handler.py:handle_request():158] handle_request: shutdown
+2024-06-04 00:06:49,326 INFO    HandlerThread:73461 [handler.py:finish():882] shutting down handler
+2024-06-04 00:06:50,267 INFO    WriterThread:73461 [datastore.py:close():296] close: /home/ray/image-generation/SDXL/wandb/run-20240603_235850-qaz66nsp/run-qaz66nsp.wandb
+2024-06-04 00:06:50,325 INFO    SenderThread:73461 [sender.py:finish():1545] shutting down sender
+2024-06-04 00:06:50,325 INFO    SenderThread:73461 [file_pusher.py:finish():169] shutting down file pusher
+2024-06-04 00:06:50,325 INFO    SenderThread:73461 [file_pusher.py:join():175] waiting for file pusher

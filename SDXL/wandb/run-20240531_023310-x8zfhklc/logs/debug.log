@@ -1,0 +1,78 @@
+2024-05-31 02:33:10,962 INFO    MainThread:98095 [wandb_setup.py:_flush():76] Current SDK version is 0.17.0
+2024-05-31 02:33:10,962 INFO    MainThread:98095 [wandb_setup.py:_flush():76] Configure stats pid to 98095
+2024-05-31 02:33:10,962 INFO    MainThread:98095 [wandb_setup.py:_flush():76] Loading settings from /home/ray/.config/wandb/settings
+2024-05-31 02:33:10,962 INFO    MainThread:98095 [wandb_setup.py:_flush():76] Loading settings from /home/ray/image-generation/SDXL/wandb/settings
+2024-05-31 02:33:10,962 WARNING MainThread:98095 [wandb_setup.py:_flush():76] Unknown environment variable: WANDB_SETUP_API_KEY_HOOK
+2024-05-31 02:33:10,962 WARNING MainThread:98095 [wandb_setup.py:_flush():76] Unknown environment variable: WANDB_PROCESS_RUN_INFO_HOOK
+2024-05-31 02:33:10,962 WARNING MainThread:98095 [wandb_setup.py:_flush():76] Unknown environment variable: WANDB_POPULATE_RUN_LOCATION_HOOK
+2024-05-31 02:33:10,962 INFO    MainThread:98095 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'api_key': '***REDACTED***'}
+2024-05-31 02:33:10,962 INFO    MainThread:98095 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-05-31 02:33:10,962 INFO    MainThread:98095 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'text_2_image.py', 'program_abspath': '/home/ray/image-generation/SDXL/text_2_image.py', 'program': '/home/ray/image-generation/SDXL/text_2_image.py'}
+2024-05-31 02:33:10,962 INFO    MainThread:98095 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-05-31 02:33:10,962 INFO    MainThread:98095 [wandb_init.py:_log_setup():520] Logging user logs to /home/ray/image-generation/SDXL/wandb/run-20240531_023310-x8zfhklc/logs/debug.log
+2024-05-31 02:33:10,962 INFO    MainThread:98095 [wandb_init.py:_log_setup():521] Logging internal logs to /home/ray/image-generation/SDXL/wandb/run-20240531_023310-x8zfhklc/logs/debug-internal.log
+2024-05-31 02:33:10,963 INFO    MainThread:98095 [wandb_init.py:_jupyter_setup():466] configuring jupyter hooks <wandb.sdk.wandb_init._WandbInit object at 0x742470380700>
+2024-05-31 02:33:10,963 INFO    MainThread:98095 [wandb_init.py:init():560] calling init triggers
+2024-05-31 02:33:10,963 INFO    MainThread:98095 [wandb_init.py:init():567] wandb.init called with sweep_config: {}
+config: {}
+2024-05-31 02:33:10,963 INFO    MainThread:98095 [wandb_init.py:init():610] starting backend
+2024-05-31 02:33:10,963 INFO    MainThread:98095 [wandb_init.py:init():614] setting up manager
+2024-05-31 02:33:10,965 INFO    MainThread:98095 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-05-31 02:33:10,967 INFO    MainThread:98095 [wandb_init.py:init():622] backend started and connected
+2024-05-31 02:33:10,973 INFO    MainThread:98095 [wandb_run.py:_label_probe_notebook():1328] probe notebook
+2024-05-31 02:33:10,973 INFO    MainThread:98095 [wandb_run.py:_label_probe_notebook():1338] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2024-05-31 02:33:10,973 INFO    MainThread:98095 [wandb_init.py:init():711] updated telemetry
+2024-05-31 02:33:10,974 INFO    MainThread:98095 [wandb_init.py:init():744] communicating run to backend with 90.0 second timeout
+2024-05-31 02:33:11,246 INFO    MainThread:98095 [wandb_run.py:_on_init():2396] communicating current version
+2024-05-31 02:33:11,267 INFO    MainThread:98095 [wandb_run.py:_on_init():2405] got version response 
+2024-05-31 02:33:11,269 INFO    MainThread:98095 [wandb_init.py:init():795] starting run threads in backend
+2024-05-31 02:33:25,510 INFO    MainThread:98095 [wandb_run.py:_console_start():2374] atexit reg
+2024-05-31 02:33:25,510 INFO    MainThread:98095 [wandb_run.py:_redirect():2229] redirect: wrap_raw
+2024-05-31 02:33:25,510 INFO    MainThread:98095 [wandb_run.py:_redirect():2294] Wrapping output streams.
+2024-05-31 02:33:25,510 INFO    MainThread:98095 [wandb_run.py:_redirect():2319] Redirects installed.
+2024-05-31 02:33:25,514 INFO    MainThread:98095 [wandb_init.py:init():838] run started, returning control to user process
+2024-05-31 02:33:25,516 INFO    MainThread:98095 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-05-31 02:33:25,516 INFO    MainThread:98095 [wandb_init.py:_pause_backend():431] pausing backend
+2024-05-31 02:33:25,736 INFO    MainThread:98095 [wandb_init.py:_resume_backend():436] resuming backend
+2024-05-31 02:33:25,743 INFO    MainThread:98095 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-05-31 02:33:25,743 INFO    MainThread:98095 [wandb_init.py:_pause_backend():431] pausing backend
+2024-05-31 02:33:26,324 INFO    MainThread:98095 [wandb_init.py:_resume_backend():436] resuming backend
+2024-05-31 02:33:26,326 INFO    MainThread:98095 [wandb_config.py:__setitem__():151] config set stable_diffusion_checkpoint = stabilityai/stable-diffusion-xl-base-1.0 - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x7423b89c4b20>>
+2024-05-31 02:33:26,326 INFO    MainThread:98095 [wandb_run.py:_config_callback():1376] config_cb stable_diffusion_checkpoint stabilityai/stable-diffusion-xl-base-1.0 None
+2024-05-31 02:33:26,326 INFO    MainThread:98095 [wandb_config.py:__setitem__():151] config set refiner_checkpoint = stabilityai/stable-diffusion-xl-refiner-1.0 - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x7423b89c4b20>>
+2024-05-31 02:33:26,327 INFO    MainThread:98095 [wandb_run.py:_config_callback():1376] config_cb refiner_checkpoint stabilityai/stable-diffusion-xl-refiner-1.0 None
+2024-05-31 02:33:26,327 INFO    MainThread:98095 [wandb_config.py:__setitem__():151] config set offload_to_cpu = False - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x7423b89c4b20>>
+2024-05-31 02:33:26,327 INFO    MainThread:98095 [wandb_run.py:_config_callback():1376] config_cb offload_to_cpu False None
+2024-05-31 02:33:26,327 INFO    MainThread:98095 [wandb_config.py:__setitem__():151] config set compile_model = False - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x7423b89c4b20>>
+2024-05-31 02:33:26,327 INFO    MainThread:98095 [wandb_run.py:_config_callback():1376] config_cb compile_model False None
+2024-05-31 02:33:26,328 INFO    MainThread:98095 [wandb_config.py:__setitem__():151] config set prompt_1 = Beach house overlooking turquoise water at sunset - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x7423b89c4b20>>
+2024-05-31 02:33:26,329 INFO    MainThread:98095 [wandb_run.py:_config_callback():1376] config_cb prompt_1 Beach house overlooking turquoise water at sunset None
+2024-05-31 02:33:26,329 INFO    MainThread:98095 [wandb_config.py:__setitem__():151] config set prompt_2 = Beach house overlooking turquoise water at sunset - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x7423b89c4b20>>
+2024-05-31 02:33:26,330 INFO    MainThread:98095 [wandb_run.py:_config_callback():1376] config_cb prompt_2 Beach house overlooking turquoise water at sunset None
+2024-05-31 02:33:26,330 INFO    MainThread:98095 [wandb_config.py:__setitem__():151] config set negative_prompt_1 =  - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x7423b89c4b20>>
+2024-05-31 02:33:26,330 INFO    MainThread:98095 [wandb_run.py:_config_callback():1376] config_cb negative_prompt_1  None
+2024-05-31 02:33:26,330 INFO    MainThread:98095 [wandb_config.py:__setitem__():151] config set negative_prompt_2 =  - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x7423b89c4b20>>
+2024-05-31 02:33:26,330 INFO    MainThread:98095 [wandb_run.py:_config_callback():1376] config_cb negative_prompt_2  None
+2024-05-31 02:33:26,333 INFO    MainThread:98095 [wandb_config.py:__setitem__():151] config set num_images_per_prompt = 4 - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x7423b89c4b20>>
+2024-05-31 02:33:26,333 INFO    MainThread:98095 [wandb_run.py:_config_callback():1376] config_cb num_images_per_prompt 4 None
+2024-05-31 02:33:26,333 INFO    MainThread:98095 [wandb_config.py:__setitem__():151] config set seed = 42 - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x7423b89c4b20>>
+2024-05-31 02:33:26,333 INFO    MainThread:98095 [wandb_run.py:_config_callback():1376] config_cb seed 42 None
+2024-05-31 02:33:26,333 INFO    MainThread:98095 [wandb_config.py:__setitem__():151] config set use_ensemble_of_experts = True - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x7423b89c4b20>>
+2024-05-31 02:33:26,333 INFO    MainThread:98095 [wandb_run.py:_config_callback():1376] config_cb use_ensemble_of_experts True None
+2024-05-31 02:33:26,333 INFO    MainThread:98095 [wandb_config.py:__setitem__():151] config set num_inference_steps = 50 - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x7423b89c4b20>>
+2024-05-31 02:33:26,333 INFO    MainThread:98095 [wandb_run.py:_config_callback():1376] config_cb num_inference_steps 50 None
+2024-05-31 02:33:26,333 INFO    MainThread:98095 [wandb_config.py:__setitem__():151] config set num_refinement_steps = 50 - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x7423b89c4b20>>
+2024-05-31 02:33:26,333 INFO    MainThread:98095 [wandb_run.py:_config_callback():1376] config_cb num_refinement_steps 50 None
+2024-05-31 02:33:26,334 INFO    MainThread:98095 [wandb_config.py:__setitem__():151] config set high_noise_fraction = 0.8 - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x7423b89c4b20>>
+2024-05-31 02:33:26,334 INFO    MainThread:98095 [wandb_run.py:_config_callback():1376] config_cb high_noise_fraction 0.8 None
+2024-05-31 02:33:26,334 INFO    MainThread:98095 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-05-31 02:33:26,334 INFO    MainThread:98095 [wandb_init.py:_pause_backend():431] pausing backend
+2024-05-31 02:33:26,736 INFO    MainThread:98095 [wandb_init.py:_resume_backend():436] resuming backend
+2024-05-31 02:33:26,743 INFO    MainThread:98095 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-05-31 02:33:26,743 INFO    MainThread:98095 [wandb_init.py:_pause_backend():431] pausing backend
+2024-05-31 02:33:27,328 INFO    MainThread:98095 [wandb_init.py:_resume_backend():436] resuming backend
+2024-05-31 02:33:30,474 INFO    MainThread:98095 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-05-31 02:33:30,474 INFO    MainThread:98095 [wandb_init.py:_pause_backend():431] pausing backend
+2024-05-31 02:33:31,383 INFO    MainThread:98095 [wandb_init.py:_resume_backend():436] resuming backend
+2024-05-31 02:33:31,389 INFO    MainThread:98095 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-05-31 02:33:31,389 INFO    MainThread:98095 [wandb_init.py:_pause_backend():431] pausing backend

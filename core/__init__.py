@@ -14,7 +14,8 @@ from torch.distributed.fsdp import (
     FullStateDictConfig,
     MixedPrecision,
     ShardingStrategy,
-    StateDictType
+    StateDictType,
+    CPUOffload
 )
 
 from .utils import Base, EXPECTED, EXPECTED_TRAIN
@@ -69,6 +70,7 @@ class WarpCore(ABC):
     fsdp_defaults = {
         "sharding_strategy": ShardingStrategy.SHARD_GRAD_OP,
         "cpu_offload": None,
+        # "cpu_offload": CPUOffload(offload_params=True), 
         "mixed_precision": MixedPrecision(
             param_dtype=torch.bfloat16,
             reduce_dtype=torch.bfloat16,
@@ -142,9 +144,12 @@ class WarpCore(ABC):
 
     def setup_ddp(self, experiment_id, single_gpu=False):
         if not single_gpu:
-            local_rank = int(os.environ.get("SLURM_LOCALID"))
-            process_id = int(os.environ.get("SLURM_PROCID"))
-            world_size = int(os.environ.get("SLURM_NNODES")) * torch.cuda.device_count()
+            # local_rank = int(os.environ.get("SLURM_LOCALID"))
+            # process_id = int(os.environ.get("SLURM_PROCID"))
+            # world_size = int(os.environ.get("SLURM_NNODES")) * torch.cuda.device_count()
+            local_rank = int(os.environ.get("LOCAL_RANK"))
+            process_id = int(os.environ.get("RANK"))
+            world_size = int(os.environ.get("WORLD_SIZE")) #* torch.cuda.device_count()
 
             self.process_id = process_id
             self.is_main_node = process_id == 0

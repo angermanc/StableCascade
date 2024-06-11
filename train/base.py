@@ -150,6 +150,7 @@ class DataCore(WarpCore):
                 else:
                     captions_unpooled = captions
             else:
+                #dropout of 5% on the CLIP-H-text
                 rand_idx = np.random.rand(batch_size) > 0.05
                 captions_unpooled = [str(c) if keep else "" for c, keep in zip(captions, rand_idx)]
             clip_tokens_unpooled = models.tokenizer(captions_unpooled, truncation=True, padding="max_length",
@@ -250,6 +251,26 @@ class TrainingCore(DataCore, WarpCore):
         if 'generator' in self.models_to_save():
             models.generator.train()
         for i in pbar:
+
+            if i == 1000 or i % (self.config.save_every * self.config.grad_accum_steps) == 0 or i == max_iters:
+                # SAVE AND CHECKPOINT STUFF
+                # if np.isnan(loss.mean().item()):
+                #     if self.is_main_node and self.config.wandb_project is not None:
+                #         tqdm.write("Skipping sampling & checkpoint because the loss is NaN")
+                #         wandb.alert(title=f"Skipping sampling & checkpoint for training run {self.config.wandb_run_id}",
+                #                     text=f"Skipping sampling & checkpoint at {self.info.total_steps} for training run {self.info.wandb_run_id} iters because loss is NaN")
+                # else:
+                if isinstance(extras.gdf.loss_weight, AdaptiveLossWeight):
+                    self.info.adaptive_loss = {
+                        'bucket_ranges': extras.gdf.loss_weight.bucket_ranges.tolist(),
+                        'bucket_losses': extras.gdf.loss_weight.bucket_losses.tolist(),
+                    }
+                self.save_checkpoints(models, optimizers)
+                if self.is_main_node:
+                    create_folder_if_necessary(f'{self.config.output_path}/{self.config.experiment_id}/')
+                self.sample(models, data, extras)
+
+
             # FORWARD PASS
             loss, loss_adjusted = self.forward_pass(data, extras, models)
 
@@ -291,23 +312,7 @@ class TrainingCore(DataCore, WarpCore):
                 if self.config.wandb_project is not None:
                     wandb.log(logs)
 
-            if i == 1 or i % (self.config.save_every * self.config.grad_accum_steps) == 0 or i == max_iters:
-                # SAVE AND CHECKPOINT STUFF
-                if np.isnan(loss.mean().item()):
-                    if self.is_main_node and self.config.wandb_project is not None:
-                        tqdm.write("Skipping sampling & checkpoint because the loss is NaN")
-                        wandb.alert(title=f"Skipping sampling & checkpoint for training run {self.config.wandb_run_id}",
-                                    text=f"Skipping sampling & checkpoint at {self.info.total_steps} for training run {self.info.wandb_run_id} iters because loss is NaN")
-                else:
-                    if isinstance(extras.gdf.loss_weight, AdaptiveLossWeight):
-                        self.info.adaptive_loss = {
-                            'bucket_ranges': extras.gdf.loss_weight.bucket_ranges.tolist(),
-                            'bucket_losses': extras.gdf.loss_weight.bucket_losses.tolist(),
-                        }
-                    self.save_checkpoints(models, optimizers)
-                    if self.is_main_node:
-                        create_folder_if_necessary(f'{self.config.output_path}/{self.config.experiment_id}/')
-                    self.sample(models, data, extras)
+            
 
     def save_checkpoints(self, models: Models, optimizers: Optimizers, suffix=None):
         barrier()
@@ -333,18 +338,42 @@ class TrainingCore(DataCore, WarpCore):
             models.generator.eval()
         with torch.no_grad():
             batch = next(data.iterator)
-
+            # get embeddings for text data only
+            #   conditions["clip_text"] of shape [bs, 77, 1280]
+            #   conditions["clip_image"] of shape [bs, 1, 768]
+            #   conditions["clip_text_pooled"] of shape [bs, 1, 1280]
             conditions = self.get_conditions(batch, models, extras, is_eval=True, is_unconditional=False, eval_image_embeds=False)
+            print(torch.max(conditions['clip_img'],dim=2), flush=True)
+            # unconditions["clip_image"] is a zero array
             unconditions = self.get_conditions(batch, models, extras, is_eval=True, is_unconditional=True, eval_image_embeds=False)
-
+            # preprocess and apply EfficientNet
             latents = self.encode_latents(batch, models, extras)
+            # in diffuse:
+            #   epsilon = torch.randn_like(latents)
+            #   logSNR = self.schedule(x0.size(0) if t is None else t)
+            #   logSNR of shape [bs]
+            #   schedules called with a batch size and randomly sample some values.
+            #   noised = latents*a + epsilon*b (a,b = input_scaler(logSNR))
+            #   noised of shape [bs, 16, w, h]
+            #   input_scaler = VPScaler() (simple logSNR centric definitions)
+            #   noise_cond = self.noise_cond(logSNR)
+            #   Noise Conditioning: You could directly pass the logSNR to your model but usually
+            #   a normalized value is used instead, for example the EDM framework uses -logSNR/8
+            #   noise_cond of shape [bs]
             noised, _, _, logSNR, noise_cond, _ = extras.gdf.diffuse(latents, shift=1, loss_shift=1)
 
-            with torch.cuda.amp.autocast(dtype=torch.bfloat16):
-                pred = models.generator(noised, noise_cond, **conditions)
-                pred = extras.gdf.undiffuse(noised, logSNR, pred)[0]
+        # #TODO (Christoph): fix the gradient issue
+        # torch.set_grad_enabled(False)
+        # with torch.cuda.amp.autocast(dtype=torch.bfloat16):
+        #     # predict epsilon
+        #     pred = models.generator(noised, noise_cond, **conditions)
+        #     # use prediction to reconstruct x0
+        #     pred = extras.gdf.undiffuse(noised, logSNR, pred)[0]
+        pred = torch.zeros_like(latents)
 
+        with torch.no_grad():
             with torch.cuda.amp.autocast(dtype=torch.bfloat16):
+                # sample based on text condition, pooled text condition, image condition
                 *_, (sampled, _, _) = extras.gdf.sample(
                     models.generator, conditions,
                     latents.shape, unconditions, device=self.device, **extras.sampling_configs

@@ -1,0 +1,202 @@
+{
+    "os": "Linux-6.5.0-1018-aws-x86_64-with-glibc2.31",
+    "python": "3.10.13",
+    "heartbeatAt": "2024-05-31T06:11:01.474430",
+    "startedAt": "2024-05-31T06:11:01.126478",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/ray/image-generation/SDXL/wandb_tutorial.py",
+    "codePathLocal": "wandb_tutorial.py",
+    "codePath": "wandb_tutorial.py",
+    "host": "ip-10-0-65-98",
+    "username": "ray",
+    "executable": "/home/ray/anaconda3/bin/python",
+    "cpu_count": 16,
+    "cpu_count_logical": 32,
+    "cpu_freq": {
+        "current": 3216.1183437500003,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2800.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3301.239,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3296.733,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3297.986,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3280.856,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3302.58,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3300.25,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3300.431,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3302.9,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2800.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3298.995,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3300.567,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2800.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3300.002,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3299.327,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3299.596,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3299.844,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3288.67,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3300.584,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3287.612,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3156.332,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3296.74,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2800.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3297.296,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3301.226,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3306.043,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3302.353,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3296.225,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2800.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3290.065,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2800.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2800.0,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 145.1909637451172,
+            "used": 34.54228210449219
+        }
+    },
+    "gpu": "NVIDIA A10G",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA A10G",
+            "memory_total": 24146608128
+        }
+    ],
+    "memory": {
+        "total": 124.43354415893555
+    }
+}
