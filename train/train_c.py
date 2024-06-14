@@ -20,7 +20,7 @@ from modules.previewer import Previewer
 from train.base import DataCore, TrainingCore
 
 from core import WarpCore
-from core.utils import EXPECTED, EXPECTED_TRAIN, load_or_fail
+from core.utils import EXPECTED, EXPECTED_TRAIN, load_or_fail, create_folder_if_necessary
 
 from torch.distributed.fsdp import FullyShardedDataParallel as FSDP
 from torch.distributed.fsdp.wrap import ModuleWrapPolicy
@@ -185,11 +185,6 @@ class WurstCore(TrainingCore, DataCore, WarpCore):
                 generator_ema = FSDP(generator_ema, **self.fsdp_defaults, auto_wrap_policy=fsdp_auto_wrap_policy, device_id=self.device,
                                      use_orig_params=True)
                 
-        #mode = 'default'         -- results in disk OOM
-        #mode = 'reduce-overhead' -- size mismatch
-        #mode = 'reduce-overhead', fullgraph=True -- dynamo setattr error
-        #mode = 'default', fullgraph=True -- dynamo setattr error
-        #mode = 'max-autotune-no-cudagraphs'
 
         generator = torch.compile(generator, mode='default')
 

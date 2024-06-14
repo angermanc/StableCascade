@@ -1,4 +1,5 @@
 import yaml
+import os
 import json
 import torch
 import wandb
@@ -12,6 +13,7 @@ import matplotlib.pyplot as plt
 from dataclasses import dataclass
 from torch.distributed import barrier
 from torch.utils.data import DataLoader
+import torch.distributed as dist
 
 from gdf import GDF
 from gdf import AdaptiveLossWeight
@@ -25,6 +27,8 @@ from webdataset.handlers import warn_and_continue
 
 import transformers
 transformers.utils.logging.set_verbosity_error()
+
+import time
 
 
 class DataCore(WarpCore):
@@ -55,6 +59,8 @@ class DataCore(WarpCore):
     config: Config
 
     def webdataset_path(self):
+        # if self.config.experiment_id == 'timestamp':
+        #     self.config.experment_id = "%d" %time.time()
         if isinstance(self.config.webdataset_path, str) and (self.config.webdataset_path.strip().startswith(
                 'pipe:') or self.config.webdataset_path.strip().startswith('file:')):
             return self.config.webdataset_path
@@ -252,25 +258,6 @@ class TrainingCore(DataCore, WarpCore):
             models.generator.train()
         for i in pbar:
 
-            if i == 1000 or i % (self.config.save_every * self.config.grad_accum_steps) == 0 or i == max_iters:
-                # SAVE AND CHECKPOINT STUFF
-                # if np.isnan(loss.mean().item()):
-                #     if self.is_main_node and self.config.wandb_project is not None:
-                #         tqdm.write("Skipping sampling & checkpoint because the loss is NaN")
-                #         wandb.alert(title=f"Skipping sampling & checkpoint for training run {self.config.wandb_run_id}",
-                #                     text=f"Skipping sampling & checkpoint at {self.info.total_steps} for training run {self.info.wandb_run_id} iters because loss is NaN")
-                # else:
-                if isinstance(extras.gdf.loss_weight, AdaptiveLossWeight):
-                    self.info.adaptive_loss = {
-                        'bucket_ranges': extras.gdf.loss_weight.bucket_ranges.tolist(),
-                        'bucket_losses': extras.gdf.loss_weight.bucket_losses.tolist(),
-                    }
-                self.save_checkpoints(models, optimizers)
-                if self.is_main_node:
-                    create_folder_if_necessary(f'{self.config.output_path}/{self.config.experiment_id}/')
-                self.sample(models, data, extras)
-
-
             # FORWARD PASS
             loss, loss_adjusted = self.forward_pass(data, extras, models)
 
@@ -312,10 +299,45 @@ class TrainingCore(DataCore, WarpCore):
                 if self.config.wandb_project is not None:
                     wandb.log(logs)
 
+            if i == 1 or i % (self.config.save_every * self.config.grad_accum_steps) == 0 or i == max_iters:
+                # SAVE AND CHECKPOINT STUFF
+
+                if np.isnan(loss.mean().item()):
+                    if self.is_main_node and self.config.wandb_project is not None:
+                        tqdm.write("Skipping sampling & checkpoint because the loss is NaN")
+                        wandb.alert(title=f"Skipping sampling & checkpoint for training run {self.config.wandb_run_id}",
+                                    text=f"Skipping sampling & checkpoint at {self.info.total_steps} for training run {self.info.wandb_run_id} iters because loss is NaN")
+                else:
+                    if isinstance(extras.gdf.loss_weight, AdaptiveLossWeight):
+                        self.info.adaptive_loss = {
+                            'bucket_ranges': extras.gdf.loss_weight.bucket_ranges.tolist(),
+                            'bucket_losses': extras.gdf.loss_weight.bucket_losses.tolist(),
+                        }
+                
+                
+                torch.cuda.set_device(int(os.environ.get("LOCAL_RANK")))
+                if self.is_main_node:
+                    print('CKPT SAVING STARTED \n', flush = True)
+                    self.save_checkpoints(models, optimizers)
+                    print('CKPT SAVING SUCCEEDED \n', flush = True)
+
+                    #created on worker node, not visible in Explorer
+                    create_folder_if_necessary(f'{self.config.output_path}/{self.config.experiment_id}/')
+                    self.sample(models, data, extras)
+                    print('SAMPLING SUCCEEDED \n', flush = True)
+                
+                #TODO(christoph): check why barrier() only works if nnodes=1
+                # print(f"Process {dist.get_rank()} reached the barrier")
+                # dist.barrier()
+                # print(f"Process {dist.get_rank()} passed the barrier")
+              
+
+                
+
             
 
     def save_checkpoints(self, models: Models, optimizers: Optimizers, suffix=None):
-        barrier()
+        
         suffix = '' if suffix is None else suffix
         self.save_info(self.info, suffix=suffix)
         models_dict = models.to_dict()
@@ -343,7 +365,7 @@ class TrainingCore(DataCore, WarpCore):
             #   conditions["clip_image"] of shape [bs, 1, 768]
             #   conditions["clip_text_pooled"] of shape [bs, 1, 1280]
             conditions = self.get_conditions(batch, models, extras, is_eval=True, is_unconditional=False, eval_image_embeds=False)
-            print(torch.max(conditions['clip_img'],dim=2), flush=True)
+            # print(torch.max(conditions['clip_img'],dim=2), flush=True)
             # unconditions["clip_image"] is a zero array
             unconditions = self.get_conditions(batch, models, extras, is_eval=True, is_unconditional=True, eval_image_embeds=False)
             # preprocess and apply EfficientNet

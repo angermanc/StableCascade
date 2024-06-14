@@ -8,7 +8,7 @@ import wandb
 
 def create_folder_if_necessary(path):
     path = "/".join(path.split("/")[:-1])
-    Path(path).mkdir(parents=True, exist_ok=True)
+    Path(path).mkdir(parents=False, exist_ok=True)
 
 
 def safe_save(ckpt, path):
