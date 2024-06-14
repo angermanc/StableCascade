@@ -1,5 +1,4 @@
 #%%
-!pip install loguru
 import pyarrow.fs
 from common import config
 import ray
@@ -11,36 +10,19 @@ import os
 from utils import (
     configure_aws_assume_role_provider, 
     get_s3_object_uris,
-    upload_to_s3
+    upload_to_s3,
+    configure_ray_for_safer_s3_reading
 )
 import shutil
 
-
-#%%
-K = 7
-fs = pyarrow.fs.S3FileSystem(role_arn=config.MODEL_TRAINER_ARN, region=config.AWS_REGION)
-configure_aws_assume_role_provider(config.MODEL_TRAINER_ARN)
-session = boto3.session.Session()
-s3_uri = "s3://ingredient-generation-model-trainer.canva.com/image-generation/canva-internal/processed/sd/FIXED-res512-20m-cogvlm-description-gptv-jpg-only-2X/"
-uris = sorted(get_s3_object_uris(s3_uri))
-
-ds = ray.data.read_parquet(
-    uris[K*1000:(K+1)*1000],
-    shuffle=None,
-    columns = ['cogvlm_captions','image_bytes'],
-    filesystem=fs
-)
-
-
-
 #%%
 @ray.remote
-def save_image_to_jpg(item, index):
+def save_image_to_jpg(item, index, path):
     try:
         image_data = io.BytesIO(item)
         image = Image.open(image_data)
         #absolute path necessary, otherwise no data is saved
-        path = "/mnt/local_storage/data/%06d.jpg" %index
+        path = "%s/%06d.jpg" %(path,index)
         image.save(path, format='JPEG')
         return path
     except Exception as e:
@@ -48,9 +30,9 @@ def save_image_to_jpg(item, index):
         return None
     
 @ray.remote
-def save_caption_to_txt(item, index):
+def save_caption_to_txt(item, index, path):
     try:
-        path = "/mnt/local_storage/data/%06d.txt" %index
+        path = "%s/%06d.txt" %(path,index)
         with open(path, "w") as file:
             file.write(item)
         return path
@@ -58,27 +40,50 @@ def save_caption_to_txt(item, index):
         print(f"Error occurred while saving image {index}: {e}")
         return None
     
+
 #%%
-dir_path = '/mnt/local_storage/data'
-if os.path.exists(dir_path):
-    shutil.rmtree(dir_path)  # Remove the directory and its contents
-os.makedirs(dir_path) 
-index = 0
-for batch in ds.iter_batches(batch_size=1000, batch_format='pandas'):
-    image_bytes_list = batch['image_bytes'].tolist()
-    caption_list = batch['cogvlm_captions'].tolist()
 
-    # image data
-    futures = [save_image_to_jpg.remote(
-        image_bytes, idx + index) for idx, image_bytes in enumerate(image_bytes_list)]
-    ray.get(futures)
+fs = pyarrow.fs.S3FileSystem(role_arn=config.MODEL_TRAINER_ARN, region=config.AWS_REGION)
+configure_aws_assume_role_provider(config.MODEL_TRAINER_ARN)
+session = boto3.session.Session()
+s3_uri = "s3://ingredient-generation-model-trainer.canva.com/image-generation/canva-internal/processed/sd/FIXED-res512-20m-cogvlm-description-gptv-jpg-only-1X/"
+uris = sorted(get_s3_object_uris(s3_uri))
+K=10000
 
-    # text data
-    futures_txt = [save_caption_to_txt.remote(
-        captions, idx + index) for idx, captions in enumerate(caption_list)]
-    ray.get(futures_txt)
+while K < len(uris):
 
-    index += len(image_bytes_list)
+    dir_path = '/mnt/local_storage/data_%d'%K
+    if os.path.exists(dir_path):
+        shutil.rmtree(dir_path)  # Remove the directory and its contents
+    os.makedirs(dir_path) 
+     
+    configure_ray_for_safer_s3_reading()
+
+    ds = ray.data.read_parquet(
+        uris[K:(K+2000)],
+        shuffle=None,
+        columns = ['cogvlm_captions','image_bytes'],
+        filesystem=fs
+    )
+    
+    index = 0
+    for batch in ds.iter_batches(batch_size=1_000, batch_format='pandas'):
+        image_bytes_list = batch['image_bytes'].tolist()
+        caption_list = batch['cogvlm_captions'].tolist()
+
+        # image data
+        futures = [save_image_to_jpg.remote(
+            image_bytes, idx + index, dir_path) for idx, image_bytes in enumerate(image_bytes_list)]
+        ray.get(futures)
+
+        # text data
+        futures_txt = [save_caption_to_txt.remote(
+            captions, idx + index, dir_path) for idx, captions in enumerate(caption_list)]
+        ray.get(futures_txt)
+
+        index += len(image_bytes_list)
+
+    K += 2000
 
 
 # %%
@@ -86,15 +91,17 @@ for batch in ds.iter_batches(batch_size=1000, batch_format='pandas'):
 
 configure_aws_assume_role_provider(config.MODEL_TRAINER_ARN)
 
-# Example usage
-file_name = '/mnt/local_storage/dataset_2X_%d.tar'%K
+tar_files = sorted([os.path.join('/mnt/cluster_storage', f) for f in os.listdir('/mnt/cluster_storage') if 'tar' in f])
 bucket_name = 'ingredient-generation-model-trainer.canva.com'
-object_name = 'image-generation/test/chris/cascade-data/dataset_2X_%d.tar'%K  # Optional: if you want a different name in S3
 
-upload_successful = upload_to_s3(file_name, bucket_name, object_name)
-if upload_successful:
-    print("Upload successful")
-else:
-    print("Upload failed")
+
+# Example usage
+for f in tar_files:
+    object_name = 'image-generation/test/chris/cascade-data/%s' %f.split('/')[-1] 
+    upload_successful = upload_to_s3(f, bucket_name, object_name)
+    if upload_successful:
+        print("Upload successful")
+    else:
+        print("Upload failed")
 
 # %%

@@ -4,6 +4,7 @@ from loguru import logger
 import pathlib
 import pyarrow
 import os
+import ray
 import boto3
 from botocore.exceptions import NoCredentialsError
 import numpy as np
@@ -118,3 +119,20 @@ def upload_to_s3(file_name, bucket, object_name=None):
         print("Credentials not available")
         return False
     return True
+
+
+def configure_ray_for_safer_s3_reading(
+    num_cpus_for_meta_fetch_task=8,
+    retry_max_backoff_s_for_meta_fetch_task=128,
+    read_file_max_attempts=60,
+    read_file_retry_max_backoff_seconds=128,
+):
+    """
+    settings for reading from s3. defaults should be safe, at least on p4de.xlarge instances.
+    """
+    ray.data.datasource.parquet_datasource.NUM_CPUS_FOR_META_FETCH_TASK = num_cpus_for_meta_fetch_task
+    ray.data.datasource.parquet_datasource.RETRY_MAX_BACKOFF_S_FOR_META_FETCH_TASK = (
+        retry_max_backoff_s_for_meta_fetch_task
+    )
+    ray.data._internal.planner.plan_read_op.READ_FILE_MAX_ATTEMPTS = read_file_max_attempts
+    ray.data._internal.planner.plan_read_op.READ_FILE_RETRY_MAX_BACKOFF_SECONDS = read_file_retry_max_backoff_seconds
