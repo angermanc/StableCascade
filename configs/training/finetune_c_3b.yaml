@@ -1,5 +1,5 @@
 # GLOBAL STUFF
-experiment_id: test-stageC-3b-canvadata-1X-2X-compile
+experiment_id: TEST-stageC-3b-canvadata-1X-2X-compile
 checkpoint_path: /mnt/cluster_storage/cascade-checkpoints/
 output_path: /home/ray/image-generation/StableCascade/output/
 model_version: 3.6B
