@@ -1,5 +1,5 @@
 # GLOBAL STUFF
-experiment_id: test-fsdp-multinode-fsdp
+experiment_id: test-fsdp-multinode-fsdp55
 checkpoint_path: /mnt/cluster_storage/cascade-checkpoints/
 output_path: /mnt/cluster_storage/online-evaluation/
 model_version: 3.6B

@@ -48,7 +48,9 @@ def load_or_fail(path, wandb_run_id=None):
             checkpoint = {}
             with safetensors.safe_open(path, framework="pt", device="cpu") as f:
                 for key in f.keys():
-                    checkpoint[key] = f.get_tensor(key)
+                    
+                    dict_key = key[len('_orig_mod.'):] if key.startswith('_orig_mod.') else key
+                    checkpoint[dict_key] = f.get_tensor(key)
         return checkpoint
     except Exception as e:
         if wandb_run_id is not None:

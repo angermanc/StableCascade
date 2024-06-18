@@ -12,6 +12,8 @@ import time
 import pyarrow.fs
 from data_prep.utils import configure_aws_assume_role_provider
 
+from ray.runtime_env import RuntimeEnv
+
 
 MODEL_TRAINER_ARN = (
     "arn:aws:iam::051687089423:role/service.ingredient-generation-model-trainer"
@@ -73,7 +75,7 @@ def init_torchrun(
 ) -> None:
     if rank == 0:
         master_address = socket.gethostbyname(socket.gethostname())
-        master_port = 29400
+        master_port = 29401
         object_store_handle.set.remote((master_address, master_port))
     c10d_master_values = None
     while c10d_master_values is None:
@@ -90,12 +92,21 @@ def init_torchrun(
         f"--master_port {master_port} "
         f"{train_script_cmd} {train_script_config}"
     )
+    print('MASTER ADDR',master_addr)
     subprocess.run(cmd, shell=True, check=True)
     return {"success": 1}
 
 
 def main() -> None:
-    ray.init()
+    ray.init(
+        runtime_env={
+            "env_vars": {
+                "FI_PROVIDER": "efa",
+                "NCCL_DEBUG": "INFO",
+            }
+        }
+    )
+
     nnodes_with_gpu = 2
     train_script_cmd = "-m train.train_c"
     train_script_config = "configs/training/finetune_c_3b.yaml"

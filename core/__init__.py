@@ -1,6 +1,7 @@
 import os
 import yaml
 import torch
+import socket
 from torch import nn
 import wandb
 import json
@@ -156,17 +157,29 @@ class WarpCore(ABC):
             self.device = torch.device(local_rank)
             self.world_size = world_size
 
-            dist_file_path = f"{os.getcwd()}/{self.config.dist_file_subfolder}dist_file_{experiment_id}"
-            # if os.path.exists(dist_file_path) and self.is_main_node:
-            #     os.remove(dist_file_path)
+            dist_file_path = f"/mnt/cluster_storage/{self.config.dist_file_subfolder}dist_file_{experiment_id}"
+            if os.path.exists(dist_file_path) and self.is_main_node:
+                os.remove(dist_file_path)
+
+            master_addr = os.environ["MASTER_ADDR"]
+            master_port = os.environ["MASTER_PORT"]
 
             torch.cuda.set_device(local_rank)
+            print("init process group")
+            # init_process_group(
+            #     backend="nccl",
+            #     rank=process_id,
+            #     world_size=world_size,
+            #     init_method=f"file://{dist_file_path}",
+            # )
             init_process_group(
                 backend="nccl",
-                rank=process_id,
-                world_size=world_size,
-                init_method=f"file://{dist_file_path}",
             )
+            print("after init process group")
+            #     init_method=f"tcp://{master_addr}:{master_port}",
+            #     rank=process_id,
+            #     world_size=world_size
+            # )
             print(f"[GPU {process_id}] READY")
         else:
             print("Running in single thread, DDP not enabled.")

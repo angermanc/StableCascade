@@ -28,6 +28,9 @@ from accelerate import init_empty_weights
 from accelerate.utils import set_module_tensor_to_device
 from contextlib import contextmanager
 
+import datetime
+torch.distributed.constants.default_pg_timeout = datetime.timedelta(seconds=60)
+
 class WurstCore(TrainingCore, DataCore, WarpCore):
     @dataclass(frozen=True)
     class Config(TrainingCore.Config, DataCore.Config, WarpCore.Config):
