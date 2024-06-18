@@ -14,6 +14,8 @@ from utils import (
     configure_ray_for_safer_s3_reading
 )
 import shutil
+import subprocess
+
 
 #%%
 @ray.remote
@@ -46,9 +48,9 @@ def save_caption_to_txt(item, index, path):
 fs = pyarrow.fs.S3FileSystem(role_arn=config.MODEL_TRAINER_ARN, region=config.AWS_REGION)
 configure_aws_assume_role_provider(config.MODEL_TRAINER_ARN)
 session = boto3.session.Session()
-s3_uri = "s3://ingredient-generation-model-trainer.canva.com/image-generation/canva-internal/processed/sd/FIXED-res512-20m-cogvlm-description-gptv-jpg-only-1X/"
+s3_uri = "s3://ingredient-generation-model-trainer.canva.com/image-generation/canva-internal/processed/sd/res512-20m-cogvlm-description-gptv-jpg-only-0X/"
 uris = sorted(get_s3_object_uris(s3_uri))
-K=10000
+K=8000
 
 while K < len(uris):
 
@@ -86,6 +88,27 @@ while K < len(uris):
     K += 2000
 
 
+    # Define the command and arguments
+    command = [
+        'tar',
+        '--sort=name',
+        '-cf',
+        '/mnt/cluster_storage/dataset_0X_%d.tar' %int(K/2000),
+        dir_path
+    ]
+
+    # Run the command
+    result = subprocess.run(command, check=True)
+
+    command2 = [
+        "rm",
+        "-r",
+        dir_path
+    ]
+    # Run the command
+    result2 = subprocess.run(command2, check=True)
+
+
 # %%
 
 
@@ -103,5 +126,7 @@ for f in tar_files:
         print("Upload successful")
     else:
         print("Upload failed")
+
+
 
 # %%
