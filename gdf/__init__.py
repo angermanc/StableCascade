@@ -61,6 +61,9 @@ class GDF():
                 else {vk: torch.cat([v[vk], v_u.get(vk, torch.zeros_like(v[vk]))], dim=0) for vk in v} if isinstance(v, dict)
                 else None for (k, v), (k_u, v_u) in zip(model_inputs.items(), unconditional_inputs.items())
             }
+            # print(f"clip_text shape {model_inputs['clip_text'].shape}"
+            #       f"clip_text_pooled shape {model_inputs['clip_text_pooled'].shape}"
+            #       f"clip_img shape {model_inputs['clip_img'].shape}")
         for i in range(0, timesteps):
             noise_cond = self.noise_cond(logSNR_range[i])
             if cfg is not None and (cfg_t_stop is None or r_range[i].item() >= cfg_t_stop) and (cfg_t_start is None or r_range[i].item() <= cfg_t_start):

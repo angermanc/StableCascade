@@ -14,6 +14,7 @@ from dataclasses import dataclass
 from torch.distributed import barrier
 from torch.utils.data import DataLoader
 import torch.distributed as dist
+import sys
 
 from gdf import GDF
 from gdf import AdaptiveLossWeight
@@ -201,6 +202,7 @@ class TrainingCore(DataCore, WarpCore):
         ema_beta: float = None
 
         use_fsdp: bool = None
+        use_compile: bool = None
 
     @dataclass()  # not frozen, means that fields are mutable. Doesn't support EXPECTED
     class Info(WarpCore.Info):
@@ -252,7 +254,7 @@ class TrainingCore(DataCore, WarpCore):
         if self.is_main_node:
             print(f"STARTING AT STEP: {start_iter}/{max_iters}")
 
-        pbar = tqdm(range(start_iter, max_iters + 1)) if self.is_main_node else range(start_iter,
+        pbar = tqdm(range(start_iter, max_iters + 1), file=sys.stderr) if self.is_main_node else range(start_iter,
                                                                                       max_iters + 1)  # <--- DDP
         if 'generator' in self.models_to_save():
             models.generator.train()
@@ -299,7 +301,7 @@ class TrainingCore(DataCore, WarpCore):
                 if self.config.wandb_project is not None:
                     wandb.log(logs)
 
-            if i == 1 or i % (self.config.save_every * self.config.grad_accum_steps) == 0 or i == max_iters:
+            if i == 100 or i % (self.config.save_every * self.config.grad_accum_steps) == 0 or i == max_iters:
                 # SAVE AND CHECKPOINT STUFF
 
                 if np.isnan(loss.mean().item()):
@@ -315,7 +317,6 @@ class TrainingCore(DataCore, WarpCore):
                         }
                 
                 
-                torch.cuda.set_device(int(os.environ.get("LOCAL_RANK")))
                 if self.is_main_node:
                     print('CKPT SAVING STARTED \n', flush = True)
                     self.save_checkpoints(models, optimizers)

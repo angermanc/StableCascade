@@ -178,15 +178,15 @@ class WurstCore(TrainingCore, DataCore, WarpCore):
         if self.config.use_fsdp:
             fsdp_auto_wrap_policy = ModuleWrapPolicy([ResBlock, AttnBlock, TimestepBlock, FeedForwardBlock])
             generator = FSDP(generator, **self.fsdp_defaults, auto_wrap_policy=fsdp_auto_wrap_policy, 
-                             use_orig_params= True,
+                            #  use_orig_params= True,
                              device_id=self.device
                              )
             if generator_ema is not None:
-                generator_ema = FSDP(generator_ema, **self.fsdp_defaults, auto_wrap_policy=fsdp_auto_wrap_policy, device_id=self.device,
-                                     use_orig_params=True)
+                generator_ema = FSDP(generator_ema, **self.fsdp_defaults, auto_wrap_policy=fsdp_auto_wrap_policy, device_id=self.device)
                 
 
-        generator = torch.compile(generator, mode='default')
+        if self.config.use_compile:
+            generator = torch.compile(generator, mode='default')
 
         # CLIP encoders
         tokenizer = AutoTokenizer.from_pretrained(self.config.clip_text_model_name)
